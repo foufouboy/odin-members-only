@@ -1,0 +1,24 @@
+header.flex
+    a.logo.flex(href="/")
+        img(src="/assets/key.svg" alt="Logo")
+        h1.title Members Only
+    .nav.flex
+        if user
+            .user-nav.flex(role="button")
+                img(src="/assets/kitty.png")
+                span Username
+                img(src="/assets/chevron-down.svg")
+                ul.drop-down
+                    li
+                        a(href="/new-post") New post
+                    li.separation
+                        hr
+                    li
+                        a(href="/members") All users
+                    li.logout
+                        a(href="/logout") Logout
+        else 
+            button.violet-button.login 
+                a(href="/login") Login
+            button.white-button.register
+                a(href="/register") Register

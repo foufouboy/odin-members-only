@@ -1,0 +1,28 @@
+.container {
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border-bottom: 1px solid var(--border-color);
+    padding: 8px 10px;
+}
+
+th {
+    padding: 10px 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.yes-td {
+    background-color: #61f35c;
+}
+
+.no-td {
+    background-color: #f86868;
+}

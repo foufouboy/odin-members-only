@@ -1,0 +1,43 @@
+main.auth {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.form {
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    display: flex;
+    flex-flow: column;
+    gap: 20px;
+    flex: 1;
+    border-radius: 10px;
+    margin-top: 50px;
+    box-shadow: 0 10px 0 .20rem #291563;
+    max-width: 500px;
+}
+
+.form > * {
+    flex: 1;
+}
+
+h2.form-title {
+    align-self: center;
+}
+
+button.violet-button.login {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.useless-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: .9rem;
+}
+
+.useless-checkbox input {
+    width: 15px;
+    height: 15px;
+}

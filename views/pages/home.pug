@@ -1,0 +1,18 @@
+extends ../partials/layout 
+
+block content
+    main.homepage
+        if (!user) 
+            .notif
+                p To create a post, you need to 
+                    a(href="/login") login
+                    |  first.
+        else if (user.member_status === "registered")
+            .notif
+                p To see usernames, you need to
+                    span join our membership
+                | first.
+        
+        .posts
+            each post in posts 
+                include ../partials/post

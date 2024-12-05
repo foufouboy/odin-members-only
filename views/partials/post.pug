@@ -1,0 +1,15 @@
+.post
+    .header.flex
+        .user-info.flex
+            img(src="/assets/kitty.png", alt="user icon")
+            div
+                p.user-fullname=post.full_name
+                .username_date 
+                    span=`@${post.username}`  
+                    |  • 
+                    span 4 days ago
+
+        button.delete-post Delete
+    h3.title=post.title
+    .content
+        p=post.content 

@@ -1,0 +1,33 @@
+extends ../partials/layout
+
+block content
+    main.members
+        h2 Users record
+        .container
+            table.users-records
+                thead
+                    tr 
+                        th.rounded-corner ID
+                        th Full name
+                        th Username
+                        th Posts created
+                        th Membership
+                        th.rounded-corner Admin
+                tbody 
+                    if users
+                        each user in users
+                            - const isMember = user.member_status !== "registered";
+                            - const isAdmin = user.member_status === "admin";
+                            tr 
+                                td(
+                                    class=(user)
+                                )=user.id
+                                td=user.full_name 
+                                td=user.username 
+                                td=user.post_count 
+                                td(
+                                    class=(isMember ? "yes-td" : "no-td")
+                                )=(isMember ? "Yes" : "No")
+                                td(
+                                    class=(isAdmin ? "yes-td" : "no-td")
+                                )=(isAdmin ? "Yes" : "No") 
