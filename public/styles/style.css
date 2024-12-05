@@ -1,0 +1,280 @@
+/* CSS IMPORTS */
+
+@import "home.css";
+@import "auth.css";
+@import "members.css";
+
+/* STYLING */
+
+/* -> FONTS */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap');
+
+:root {
+    /* -> COLORS */
+
+    --main-bg: #0E1217;
+    --post-bg: #1A1F26;
+    --heading: white;
+
+    --main-color: white;
+    --sub-color: #cfd6e6;
+    --important-color: #7147ED;
+    --border-color: #343944;
+    --error-color: rgb(255, 0, 25);
+
+    /* -> SIZES */
+}
+
+/* GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: var(--main-bg);
+    color: var(--main-color);
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1.title {
+    font-family: "DM Serif Text";
+    font-weight: normal;
+    font-size: 2rem;
+}
+
+h1, h2, h3 {
+    color: var(--heading);
+}
+
+button {
+    cursor: pointer;
+}
+
+/* MODULES/REUSABLES */
+
+.flex {
+    display: flex;
+}
+
+.violet-button {
+    color: inherit;
+    background: var(--important-color);
+}
+
+.violet-button:hover {
+    background: #613dca;
+}
+
+.white-button {
+    color: var(--important-color);
+    background: var(--main-color);
+}
+
+.white-button:hover {
+    background: var(--important-color);
+    color: white;
+}
+
+.violet-button, 
+.white-button {
+    transition: all .2s ease-in-out;
+    border: 0;
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.default-input {
+    display: flex;
+    flex-flow: column;
+    gap: 10px;
+}
+
+.default-input input {
+    background: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    outline: none;
+    border: 1px solid var(--border-color);
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: box-shadow .1s ease-in-out;
+}
+
+.default-input input:focus {
+    box-shadow: 0 0 0 .25rem var(--important-color);
+}
+
+.default-input input:is(:-webkit-autofill, :autofill) {
+    background: black !important;
+    color: inherit !important;
+}
+
+textarea {
+    background: inherit;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    transition: box-shadow .1s ease-in-out;
+    color: inherit;
+    padding: 15px;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+textarea:focus {
+    box-shadow: 0 0 0 .25rem var(--important-color);
+    outline: none;
+}
+
+/* HEADER */
+
+header {
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+    gap: 5px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-color: var(--important-color)
+}
+
+.logo img {
+    width: 35px;
+}
+
+.nav {
+    gap: 8px;
+}
+
+.nav button {
+    height: 40px;
+}
+
+.user-nav {
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    position: relative;
+}
+
+.user-nav img:nth-child(1) {
+    width: 32px;
+    object-fit: cover;
+    border: 3px solid var(--important-color);
+    border-radius: 180px;
+    background: grey;
+}
+
+.user-nav img:last-child {
+    width: 15px;
+}
+
+.user-nav .drop-down {
+    display: none;
+    position: absolute;
+    flex-flow: column;
+    padding: 15px 0;
+    background: var(--border-color);
+    width: 100%;
+    top: 40px;
+    cursor: auto;
+    left: 0;
+    list-style: none;
+    border-radius: 5px;
+    border: 1px solid var(--important-color);
+}
+
+.user-nav .drop-down li {
+    padding: 8px 15px;
+}
+
+.user-nav .drop-down li:hover {
+    background: #2b2e33;
+}
+
+.user-nav .drop-down li.separation {
+    cursor: auto;
+}
+
+.user-nav .drop-down li.separation:hover {
+    background: var(--border-color);
+}
+
+.user-nav .drop-down li hr {
+    width: 100%;
+    height: 1px;
+    border: none;
+    background: var(--important-color);
+}
+
+.user-nav li.logout {
+    color: var(--error-color);
+}
+
+.user-nav .drop-down.active {
+    display: flex;
+}
+
+/* MAIN */
+
+main {
+    padding: 30px;
+    align-self: center;
+}
+
+/* FOOTER */
+
+footer {
+    margin-top: auto;
+    align-self: center;
+    padding: 20px 20px;
+    border-top: 1px solid var(--border-color);
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    gap: 10px;
+    align-items: center;
+}
+
+footer a {
+    color: var(--important-color);
+    text-decoration: underline;
+}
+
+footer p:nth-child(2) {
+    display: flex;
+    gap: 5px;
+}
+
+footer img {
+    width: 28px;
+}
+
+/* MISC */
+
+button.new-post.violet-button {
+    margin-top: 10px;
+    padding: 15px;
+    width: auto;
+}

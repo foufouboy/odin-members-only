@@ -1,0 +1,80 @@
+extends ../partials/layout 
+
+block content
+    main.auth
+        if route == "login"
+            form.form(action="./" method="POST")
+                h2.form-title Welcome back
+                .default-input.username-input
+                    label(for="username") Username
+                    input(
+                        id="username"
+                        name="username"
+                        type="text"
+                        minlength="3"
+                        required
+                    )
+                .default-input.password-input
+                    label(for="password") Password
+                    input(
+                        id="password"
+                        name="password"
+                        type="password"
+                        minlength="5"
+                        required
+                    )
+                .useless-checkbox
+                    input(
+                        type="checkbox"
+                        id="useless-checkbox"
+                        value="youre gay"
+                    ) 
+                    label(for="useless-checkbox") Check this useless checkbox
+                button.violet-button.login(type="submit") Login
+        else 
+            form.form(action="./" method="POST")
+                h2.form-title Register a new account
+                .default-input.fullname-input
+                    label(for="full_name") Fullname
+                    input(
+                        id="full_name"
+                        name="full_name"
+                        type="text"
+                        minlength="3"
+                        required
+                    )
+                .default-input.username-input
+                    label(for="username") Username
+                    input(
+                        id="username"
+                        name="username"
+                        type="text"
+                        minlength="3"
+                        required
+                    )
+                .default-input.password-input
+                    label(for="password") Password
+                    input(
+                        id="password"
+                        name="password"
+                        type="password"
+                        minlength="5"
+                        required
+                    )
+                .default-input.confirm-input
+                    label(for="password") Confirm password
+                    input(
+                        id="password"
+                        name="password"
+                        type="password"
+                        minlength="5"
+                        required
+                    )
+                .useless-checkbox
+                    input(
+                        type="checkbox"
+                        id="useless-checkbox"
+                        value="youre gay"
+                    ) 
+                    label(for="useless-checkbox") Check this really useless checkbox
+                button.violet-button.login(type="submit") Login

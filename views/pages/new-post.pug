@@ -1,0 +1,24 @@
+
+extends ../partials/layout 
+
+block content
+    main.new-post
+            form.form(action="./" method="POST")
+                .default-input
+                    label Title
+                    input(
+                        type="text"
+                        minlength="5"
+                        required
+                        name="title"
+                        id="title"
+                    )
+                .default-input
+                    label Content
+                    textarea(
+                        minlength="5"
+                        rows="10"
+                        cols="55"
+                        required
+                    )
+                button.new-post.violet-button(type="submit") Submit

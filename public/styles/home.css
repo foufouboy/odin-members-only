@@ -1,0 +1,85 @@
+
+main.homepage {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
+}
+
+.posts {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    gap: 20px;
+}
+
+.post .header {
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.post {
+    border: 1px solid var(--border-color);
+    padding: 17px;
+    border-radius: 10px;
+}
+
+h3.title {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.user-info {
+    font-size: .95rem;
+    gap: 10px;
+}
+
+.user-fullname {
+    font-weight: bold;
+}
+
+.username_date {
+    color: rgb(255, 255, 255, .5);
+}
+
+.user-info img {
+    width: 45px;
+    object-fit: cover;
+    border: 3px solid var(--important-color);
+    border-radius: 180px;
+    background: #FFBA33;
+}
+
+button.delete-post {
+    border: none;
+    background: var(--error-color);
+    color: inherit;
+    font-family: inherit;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: .9rem;
+    transition: background .2s ease-in-out;
+}
+
+button.delete-post:hover {
+    background: rgb(179 0 18);
+}
+
+.notif {
+    width: 100%;
+    background: #7147ed88;
+    padding: 18px 15px;
+    text-align: center;
+    border: 1px solid var(--important-color);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.notif a {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
