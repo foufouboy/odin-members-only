@@ -7,7 +7,7 @@ const post = require("../controllers/posts");
 
 router.post("/login", () => {});
 router.post("/new-post", () => {});
-router.post("/register", () => {});
+router.post("/register", user.register.post);
 router.post("/join", () => {});
 router.post("delete/:postId", () => {});
 

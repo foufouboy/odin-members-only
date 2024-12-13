@@ -1,5 +1,9 @@
 extends ../partials/layout 
 
+block scripts 
+    if route == "register"
+        script(src="/scripts/register.js" defer)
+
 block content
     main.auth
         if route == "login"
@@ -11,7 +15,8 @@ block content
                         id="username"
                         name="username"
                         type="text"
-                        minlength="3"
+                        minlength="5"
+                        maxlength="50"
                         required
                     )
                 .default-input.password-input
@@ -21,6 +26,7 @@ block content
                         name="password"
                         type="password"
                         minlength="5"
+                        maxlength="50"
                         required
                     )
                 .useless-checkbox
@@ -32,7 +38,16 @@ block content
                     label(for="useless-checkbox") Check this useless checkbox
                 button.violet-button.login(type="submit") Login
         else 
-            form.form(action="./" method="POST")
+            form.form(method="POST")
+                if success
+                    .notif.successful-reg
+                        p Account created successfully, you can 
+                            a(href="/login") login
+                        | now!
+                if errors
+                    ul.errors 
+                        each error in errors
+                            li=error.msg
                 h2.form-title Register a new account
                 .default-input.fullname-input
                     label(for="full_name") Fullname
@@ -40,7 +55,8 @@ block content
                         id="full_name"
                         name="full_name"
                         type="text"
-                        minlength="3"
+                        minlength="5"
+                        maxlength="50"
                         required
                     )
                 .default-input.username-input
@@ -49,7 +65,8 @@ block content
                         id="username"
                         name="username"
                         type="text"
-                        minlength="3"
+                        minlength="5"
+                        maxlength="50"
                         required
                     )
                 .default-input.password-input
@@ -59,17 +76,20 @@ block content
                         name="password"
                         type="password"
                         minlength="5"
+                        maxlength="50"
                         required
                     )
                 .default-input.confirm-input
-                    label(for="password") Confirm password
+                    label(for="conf-password") Confirm password
                     input(
-                        id="password"
-                        name="password"
+                        id="conf-password"
+                        name="conf-password"
                         type="password"
                         minlength="5"
+                        maxlength="50"
                         required
                     )
+                    p.confirm-error Passwords do not match. Please try again. 
                 .useless-checkbox
                     input(
                         type="checkbox"
@@ -77,4 +97,4 @@ block content
                         value="youre gay"
                     ) 
                     label(for="useless-checkbox") Check this really useless checkbox
-                button.violet-button.login(type="submit") Login
+                button.violet-button.login(type="submit") Register

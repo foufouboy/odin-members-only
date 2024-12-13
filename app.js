@@ -1,7 +1,9 @@
 const express = require("express");
+const createError = require("http-errors");
 const passport = require("passport");
 const path = require("node:path");
 const routes = require("./routes/index");
+const errorHandler = require("./middlewares/error");
 
 const app = express();
 
@@ -13,6 +15,14 @@ app.set("views", path.join(__dirname, "views"));
 // ROUTES
 
 app.use(routes);
+
+// ERRORS
+
+app.use((req, res, next) => {
+    next(createError(404));
+})
+
+app.use(errorHandler);
 
 // SERVER
 
