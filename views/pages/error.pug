@@ -1,0 +1,12 @@
+extends ../partials/layout
+
+block content
+    main.error
+        h2 Oopsie.
+        h3= `${error.status} : ${message} `
+
+        if typeof error === "string"
+            h3= error
+        else 
+            p Check out the server logs!
+            - 

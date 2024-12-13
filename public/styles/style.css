@@ -168,7 +168,20 @@ header {
 }
 
 .nav button {
-    height: 40px;
+}
+
+.nav button.login,
+.nav button.register {
+    padding: 0;
+    display: flex;
+}
+
+.nav a {
+    display: inline-block;
+    flex: 1;
+    padding: 10px;
+    align-self: center;
+    height: 100%;
 }
 
 .user-nav {
@@ -277,4 +290,20 @@ button.new-post.violet-button {
     margin-top: 10px;
     padding: 15px;
     width: auto;
+}
+
+/* ERROR */
+
+main.error {
+    margin-top: 20px;
+    text-align: center;
+}
+
+main.error h2 {
+    font-size: 2rem;
+    font-style: italic;
+}
+
+main.error h3 {
+    color: rgb(247, 137, 137);
 }

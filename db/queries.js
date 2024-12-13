@@ -43,7 +43,16 @@ const queries = {
         `);
 
         return rows;
-    }
+    },
+
+    createUser: async (fullname, username, password) => {
+        await connection.query(`
+            INSERT INTO users 
+                (full_name, username, password, member_status)
+            VALUES
+                ($1, $2, $3, 'registered');
+        `, [fullname, username, password]);
+    },
 }
 
 module.exports = queries;
