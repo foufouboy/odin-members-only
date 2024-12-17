@@ -209,10 +209,10 @@ header {
     flex-flow: column;
     padding: 15px 0;
     background: var(--border-color);
-    width: 100%;
+    width: 150px;
     top: 40px;
     cursor: auto;
-    left: 0;
+    left: -50px;;
     list-style: none;
     border-radius: 5px;
     border: 1px solid var(--important-color);

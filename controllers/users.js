@@ -1,4 +1,5 @@
 const { validationResult } = require("express-validator");
+const bcrypt = require("bcryptjs");
 const db = require("../db/queries");
 
 const usersController = {
@@ -28,8 +29,9 @@ const usersController = {
                     });
                 } else {
                     const {full_name, username, password} = req.body;
+                    const hashedPw = await bcrypt.hash(password, 10)
 
-                    await db.createUser(full_name, username, password);
+                    await db.createUser(full_name, username, hashedPw);
 
                     res.render("pages/auth", {
                         route: "register",
