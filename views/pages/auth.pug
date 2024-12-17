@@ -7,7 +7,7 @@ block scripts
 block content
     main.auth
         if route == "login"
-            form.form(action="./" method="POST")
+            form.form(method="POST")
                 h2.form-title Welcome back
                 .default-input.username-input
                     label(for="username") Username
@@ -15,7 +15,6 @@ block content
                         id="username"
                         name="username"
                         type="text"
-                        minlength="5"
                         maxlength="50"
                         required
                     )
@@ -25,7 +24,6 @@ block content
                         id="password"
                         name="password"
                         type="password"
-                        minlength="5"
                         maxlength="50"
                         required
                     )

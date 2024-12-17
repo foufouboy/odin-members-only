@@ -5,7 +5,7 @@ const indexController = {
         try {
             const posts = await db.getAllPosts();
             if (posts.length > 0) res.locals.posts = posts;
-            res.render("pages/home", {user: false});
+            res.render("pages/home", {user: req.user});
 
         } catch (err) {
             console.error(err);
