@@ -1,6 +1,7 @@
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const db = require("../db/queries");
+const passport = require("passport");
 
 const usersController = {
 
@@ -9,9 +10,10 @@ const usersController = {
             res.render("pages/auth", {route: "login"});
         },
 
-        post: async (req, res) => {
-
-        }
+        post: passport.authenticate("local", {
+            successRedirect: "/",
+            failureRedirect: "/login",
+        }),
     },
 
     register: {
@@ -42,6 +44,13 @@ const usersController = {
                 next(err);
             }
         }
+    },
+
+    logout: (req, res, next) => {
+        req.logout(err => {
+            if (err) return next(err);
+            res.redirect("/");
+        });
     }
 }
 

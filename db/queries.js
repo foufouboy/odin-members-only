@@ -21,6 +21,13 @@ const queries = {
         return rows;
     },
 
+    createPost: async (title, content, userId) => {
+        await connection.query(`
+            INSERT INTO posts (title, content, user_id)
+            VALUES ($1, $2, $3);
+        `, [title, content, userId]);
+    },
+
     // USERS QUERIES
 
     getUserFromId: async (id) => {

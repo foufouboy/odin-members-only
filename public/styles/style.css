@@ -167,9 +167,6 @@ header {
     gap: 8px;
 }
 
-.nav button {
-}
-
 .nav button.login,
 .nav button.register {
     padding: 0;
@@ -211,8 +208,8 @@ header {
     background: var(--border-color);
     width: 150px;
     top: 40px;
+    right: 0;
     cursor: auto;
-    left: -50px;;
     list-style: none;
     border-radius: 5px;
     border: 1px solid var(--important-color);

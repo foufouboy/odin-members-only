@@ -3,12 +3,15 @@ extends ../partials/layout
 
 block content
     main.new-post
-            form.form(action="./" method="POST")
+            form.form(method="POST")
+                if errors
+                    include ../partials/validation-errors
                 .default-input
                     label Title
                     input(
                         type="text"
                         minlength="5"
+                        maxlength="100"
                         required
                         name="title"
                         id="title"
@@ -16,9 +19,12 @@ block content
                 .default-input
                     label Content
                     textarea(
-                        minlength="5"
+                        id="content"
+                        minlength="10"
+                        maxlength="100"
                         rows="10"
                         cols="55"
+                        name="content"
                         required
                     )
                 button.new-post.violet-button(type="submit") Submit

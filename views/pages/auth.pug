@@ -43,9 +43,7 @@ block content
                             a(href="/login") login
                         | now!
                 if errors
-                    ul.errors 
-                        each error in errors
-                            li=error.msg
+                    include ../partials/validation-errors
                 h2.form-title Register a new account
                 .default-input.fullname-input
                     label(for="full_name") Fullname
