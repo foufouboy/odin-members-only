@@ -4,7 +4,7 @@ const passport = require("passport");
 const sessionConfig = require("./config/sessionConfig");
 const path = require("node:path");
 const routes = require("./routes/index");
-const errorHandler = require("./middlewares/error");
+const errorHandler = require("./middlewares/error").errorHandler;
 
 const app = express();
 

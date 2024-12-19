@@ -1,3 +1,6 @@
+const { validationResult } = require("express-validator");
+const db = require("../db/queries");
+
 const postsController = {
     create: {
         get: (req, res, next) => {
@@ -5,7 +8,25 @@ const postsController = {
         },
 
         post: async (req, res, next) => {
+            try {
+                const errors = validationResult(req);
 
+                if (!errors.isEmpty()) {
+                    console.log(errors.array());
+                    res.render("pages/new-post", {
+                        errors: errors.array(),
+                    });
+                } else {
+                    const { title, content } = req.body;
+
+                    await db.createPost(title, content, req.user.id);
+
+                    res.redirect("/");
+                    // successful validation : in db.
+                }
+            } catch (err) {
+                next(err);
+            }
         },
     }
 }

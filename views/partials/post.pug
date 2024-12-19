@@ -7,9 +7,10 @@
                 .username_date 
                     span=`@${post.username}`  
                     |  • 
-                    span 4 days ago
+                    span=post.date
 
-        button.delete-post Delete
+        if user && user.member_status == "admin"
+            button.delete-post Delete
     h3.title=post.title
     .content
         p=post.content 

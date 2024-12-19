@@ -7,14 +7,20 @@ const errorHandler = (err, req, res, next) => {
     res.locals.message = 
         statusCode === 404
         ? "Page not found"
-        : "An unexpected error occurred. Please try again later. Sorry :(";
+        : err.message;
 
-    res.locals.error = req.app.get("env") === "development" 
-        ? err 
-        : "If you're the dev, check out the server logs!";
+    res.locals.error = err;
     
     res.status(statusCode).render("pages/error");
 }
 
+class UnauthorizedError extends Error {
+    constructor() {
+        super("You're not authorized to access this page!");
+        this.statusCode = 401;
+    }
+}
 
-module.exports = errorHandler;
+
+module.exports.UnauthorizedError = UnauthorizedError;
+module.exports.errorHandler = errorHandler;

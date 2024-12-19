@@ -3,10 +3,10 @@ extends ../partials/layout
 block content
     main.error
         h2 Oopsie.
-        h3= `${error.status} : ${message} `
+        h3= `${error.statusCode} : ${message} `
 
         if typeof error === "string"
             h3= error
         else 
-            p Check out the server logs!
+            p If you're the dev, check out the server logs!
             - 

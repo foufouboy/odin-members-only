@@ -1,11 +1,23 @@
 const db = require("../db/queries");
+const moment = require("moment");
 
 const indexController = {
     home: async (req, res, next) => {
         try {
             const posts = await db.getAllPosts();
-            if (posts.length > 0) res.locals.posts = posts;
-            res.render("pages/home", {user: req.user});
+
+            if (posts.length > 0) {
+                const formattedPosts = posts.map(e => {
+                    return {
+                        ...e,
+                        date: moment(e.date).fromNow(),
+                    }
+                });
+
+                res.locals.posts = formattedPosts;
+            }
+
+            res.render("pages/home");
 
         } catch (err) {
             console.error(err);
