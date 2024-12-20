@@ -16,7 +16,7 @@ router.post("/login", user.login.post);
 router.post("/new-post", postValidation, post.create.post);
 router.post("/register", signupValidation, user.register.post);
 router.post("/join", isAuth, user.join);
-router.post("/delete-post/:postId", post.delete);
+router.post("/delete-post/:postId", isAdmin, post.delete);
 
 // GET ROUTES
 

@@ -176,9 +176,10 @@ header {
 .nav a {
     display: inline-block;
     flex: 1;
-    padding: 10px;
+    padding: 15px;
     align-self: center;
     height: 100%;
+    width: 100%;
 }
 
 .user-nav {
@@ -213,10 +214,6 @@ header {
     list-style: none;
     border-radius: 5px;
     border: 1px solid var(--important-color);
-}
-
-.user-nav .drop-down li {
-    padding: 8px 15px;
 }
 
 .user-nav .drop-down li:hover {
@@ -303,4 +300,23 @@ main.error h2 {
 
 main.error h3 {
     color: rgb(247, 137, 137);
+}
+
+@media screen and (max-width: 600px) {
+    h1.title {
+        font-size: 1.8rem;
+    }
+
+    .logo img {
+        width: 30px;
+    }
+
+    .logo {
+        gap: 2px;
+    }
+
+    header {
+        flex-flow: column;
+        gap: 15px;
+    }
 }
