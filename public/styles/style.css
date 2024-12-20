@@ -286,6 +286,10 @@ button.new-post.violet-button {
     width: auto;
 }
 
+main.new-post {
+    max-width: 100%;
+}
+
 /* ERROR */
 
 main.error {
