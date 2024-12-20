@@ -1,5 +1,10 @@
+main.members {
+    max-width: 100%;
+}
+
 .container {
     overflow: hidden;
+    overflow-x: auto;
     border: 1px solid var(--border-color);
     border-radius: 10px;
     margin-top: 15px;
