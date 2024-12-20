@@ -1,16 +1,26 @@
+- 
+    const isMember = !user ? 
+        false : user.member_status === "registered" ?
+        false : true;
+
+    const fullname = isMember ? post.full_name : "*****";
+    const username = isMember ? post.username : "*****";
+
 .post
     .header.flex
         .user-info.flex
             img(src="/assets/kitty.png", alt="user icon")
             div
-                p.user-fullname=post.full_name
+                p.user-fullname=fullname
                 .username_date 
-                    span=`@${post.username}`  
+                    span=`@${username}`  
                     |  • 
                     span=post.date
 
         if user && user.member_status == "admin"
-            button.delete-post Delete
+            button.delete-post(
+                data-post-id=post.id
+            ) Delete
     h3.title=post.title
     .content
         p=post.content 
