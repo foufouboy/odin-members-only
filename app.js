@@ -9,6 +9,7 @@ const errorHandler = require("./middlewares/error").errorHandler;
 const app = express();
 
 app.use(express.static("public"));
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
@@ -22,7 +23,6 @@ app.use(sessionConfig());
 app.use(passport.session());
 
 app.use((req, res, next) => {
-    console.log(req.session);
     console.log(req.user);
     next();
 })

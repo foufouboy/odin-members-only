@@ -15,8 +15,8 @@ router.all("*", (req, res, next) => {
 router.post("/login", user.login.post);
 router.post("/new-post", postValidation, post.create.post);
 router.post("/register", signupValidation, user.register.post);
-router.post("/join", () => {});
-router.post("delete/:postId", () => {});
+router.post("/join", isAuth, user.join);
+router.post("/delete-post/:postId", post.delete);
 
 // GET ROUTES
 

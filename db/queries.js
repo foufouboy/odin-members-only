@@ -28,6 +28,12 @@ const queries = {
         `, [title, content, userId]);
     },
 
+    deletePost: async (id) => {
+        await connection.query(`
+            DELETE FROM posts WHERE id = $1;     
+        `, [id]);
+    },
+
     // USERS QUERIES
 
     getUserFromId: async (id) => {
@@ -77,6 +83,14 @@ const queries = {
             VALUES
                 ($1, $2, $3, 'registered');
         `, [fullname, username, password]);
+    },
+
+    giveUserMembership: async (id) => {
+        await connection.query(`
+            UPDATE users 
+            SET member_status = 'member'
+            WHERE id = $1;
+        `, [id]);
     },
 }
 

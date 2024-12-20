@@ -5,6 +5,15 @@ const passport = require("passport");
 
 const usersController = {
 
+    join: async (req, res, next) => {
+        try {
+            await db.giveUserMembership(req.user.id);
+            res.redirect("/");
+        } catch (err) {
+            next(err)
+        }
+    },
+
     login: {
         get: (req, res) => {
             res.render("pages/auth", {route: "login"});

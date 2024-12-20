@@ -2,6 +2,15 @@ const { validationResult } = require("express-validator");
 const db = require("../db/queries");
 
 const postsController = {
+    delete: async (req, res, next) => {
+        try {
+            await db.deletePost(req.body.id);
+            res.redirect("/");
+        } catch (err) {
+            next(err);
+        }
+    },
+
     create: {
         get: (req, res, next) => {
             res.render("pages/new-post");
