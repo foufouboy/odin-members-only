@@ -37,7 +37,7 @@ const createPostsTable = `
         id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
         title VARCHAR(50) NOT NULL,
         content VARCHAR(500) NOT NULL,
-        date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        date TIMESTAMP WITH TIMEZONE DEFAULT CURRENT_TIMESTAMP,
         user_id INTEGER NOT NULL,
         CONSTRAINT fk_user_posts 
             FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL

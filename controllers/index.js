@@ -15,6 +15,8 @@ const indexController = {
                 });
 
                 res.locals.posts = formattedPosts;
+            } else {
+                res.locals.posts = posts;
             }
 
             res.render("pages/home");
